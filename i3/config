@@ -136,7 +136,3 @@ for_window [class="^.*"] border pixel 5
 # Gaps
 gaps inner 7
 gaps outer 2
-
-# Power
-bindsym $win+o+f exec poweroff
-bindsym $win+r+b exec reboot
