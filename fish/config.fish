@@ -11,8 +11,16 @@ if status is-login
 end
 
 if status is-interactive
-    figlet "Terminal"
-    echo ""
 end
 
-alias g++="g++ -std=c++ -O2 -Wall"
+alias g++="g++ -std=c++17 -O2 -Wall"
+alias python="python3"
+alias pydoc="python -m pydoc"
+
+alias mkdir="mkdir -pv"
+alias rm="rm -rf"
+alias la="ls -la"
+alias cp="cp -r"
+
+alias update="sudo pacman -Syyuu"
+

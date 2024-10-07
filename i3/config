@@ -5,7 +5,7 @@ set $win Mod4
 set $alt Mod1
 
 # Set font
-font pango: JetBrainsMono Nerd 14
+font pango: JetBrains Mono 14
 
 # Change volume and brightness
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -15,6 +15,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym Print exec --no-startup-id maim --format=jpg "/home/davpe/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%S').jpg"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $win
@@ -23,7 +24,7 @@ floating_modifier $win
 bindsym $win+Return exec kitty
 
 # Rofi
-bindsym $win+d exec --no-startup-id rofi -font "JetBrainsMono Nerd 14" -theme glue_pro_blue -show run
+bindsym $win+d exec --no-startup-id rofi -font "JetBrains Mono 14" -theme glue_pro_blue -show run
 
 # i3lock
 bindsym $win+Escape exec i3lock -c 000000
@@ -115,7 +116,7 @@ bindsym $win+Shift+c reload
 # Restart i3
 bindsym $win+Shift+r restart
 # Exit i3
-bindsym $win+Shift+e exec "i3-nagbar -t warning -m 'Do you want to exit?' -B 'Yes, exit!' 'i3-msg exit'"
+bindsym $win+Shift+e exec i3-msg exit
 
 # Resize window
 mode "resize" {
@@ -128,10 +129,11 @@ mode "resize" {
 
 bindsym $win+r mode "resize"
 
+# Polybar(statusbar)
 exec polybar
 
 # Window
-for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 6
 
 # Gaps
 gaps inner 7
